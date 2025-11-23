@@ -11,16 +11,16 @@ import lombok.Data;
 
 public class FuelStationInformation {
 
-    @NotBlank
+    @NotBlank(message = "Station name is required")
     private String stationName;
 
-    @DecimalMin(value = "1.0")
+    @DecimalMin(value = "1.0", message = "Petrol price must be more than or equal to €1")
     private double petrolPrice;
 
-    @DecimalMin(value = "1.0")
+    @DecimalMin(value = "1.0", message = "Diesel price must be more than or equal to €1")
     private double dieselPrice;
 
-    @NotBlank
+    @NotBlank(message = "Location is required")
     private String location;
 
 
