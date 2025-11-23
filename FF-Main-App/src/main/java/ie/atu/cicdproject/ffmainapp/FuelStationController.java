@@ -1,5 +1,6 @@
 package ie.atu.cicdproject.ffmainapp;
 
+import ie.atu.cicdproject.ffmainapp.errorHandling.NoStationsFoundException;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,9 +30,14 @@ public class FuelStationController {
     // Search stations by location (e.g. "Galway City")
     @GetMapping("/search")
     public List<FuelStationInformation> searchByLocation(@RequestParam String location) {
-        return stations.stream()
+
+        List<FuelStationInformation> results = stations.stream()
                 .filter(s -> s.getLocation().equalsIgnoreCase(location))
                 .collect(Collectors.toList());
+        if (results.isEmpty()) {
+            throw new NoStationsFoundException("No fuel stations found in " + location);
+        }
+        return results;
     }
 
     // Count total stations
