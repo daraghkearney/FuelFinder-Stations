@@ -1,7 +1,7 @@
 package ie.atu.cicdproject.ffmainapp;
 
 import ie.atu.cicdproject.ffmainapp.Model.UserInformation;
-import ie.atu.cicdproject.ffmainapp.Services.UserService;
+import ie.atu.cicdproject.ffmainapp.Service.UserService;
 
 
 import org.junit.jupiter.api.BeforeEach;

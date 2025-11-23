@@ -1,4 +1,4 @@
-package ie.atu.cicdproject.ffmainapp.Services;
+package ie.atu.cicdproject.ffmainapp.Service;
 
 
 import ie.atu.cicdproject.ffmainapp.Model.UserInformation;

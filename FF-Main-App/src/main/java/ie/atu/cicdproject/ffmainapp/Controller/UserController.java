@@ -1,6 +1,6 @@
-package ie.atu.cicdproject.ffmainapp;
+package ie.atu.cicdproject.ffmainapp.Controller;
 
-import ie.atu.cicdproject.ffmainapp.Services.UserService;
+import ie.atu.cicdproject.ffmainapp.Service.UserService;
 import ie.atu.cicdproject.ffmainapp.Model.UserInformation;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
