@@ -6,9 +6,7 @@ import ie.atu.cicdproject.ffmainapp.errorHandling.NoStationsFoundException;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/stations")
@@ -20,7 +18,6 @@ public class FuelStationController {
         this.service = service;
     }
 
-
     // Add a new fuel station
     @PostMapping("/add")
     public FuelStationInformation addStation(@Valid @RequestBody FuelStationInformation station) {
@@ -29,21 +26,19 @@ public class FuelStationController {
 
     // Get all stations
     @GetMapping("/getAll")
-    public List<FuelStationInformation> getAllStations()
-    {
+    public List<FuelStationInformation> getAllStations() {
         return service.getAll();
     }
 
-    // Search stations by location (e.g. "Galway City")
+    // Search stations by station name
     @GetMapping("/search")
-    public List<FuelStationInformation> search(@RequestParam String location) {
-        return service.search(location);
+    public List<FuelStationInformation> searchByStation(@RequestParam String station) {
+        return service.searchByStation(station);
     }
 
     // Count total stations
     @GetMapping("/count")
-    public int countStations()
-    {
+    public int countStations() {
         return service.count();
     }
 }
