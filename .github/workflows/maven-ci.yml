@@ -22,6 +22,7 @@ jobs:
           java-version: '23'
 
       - name: Build with Maven
+        working-directory: FF-Main-App
         run: mvn -B package -DskipTests
 
       - name: Set image name (lowercase)
@@ -37,7 +38,7 @@ jobs:
       - name: Build & Push
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: ./FF-Main-App
           push: true
           tags: |
             ${{ env.IMAGE }}:latest
